@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('./app');
 var debug = require('debug')('new-energy-emails:server');
 var http = require('http');
 
@@ -86,5 +86,6 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
+  console.log('Listen on >>:', bind);
   debug('Listening on ' + bind);
 }
