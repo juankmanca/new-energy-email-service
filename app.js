@@ -26,8 +26,9 @@ app.use(cors({
   origin: '*',
   methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['xAuth', 'Content-Type', 'X-Requested-With'],
-  preflightContinue: false,
   exposedHeaders: ['xAuth', 'Content-Type', 'Accept'],
+  preflightContinue: false,
+  credentials: true
 }));
 
 app.use('/', indexRouter);
