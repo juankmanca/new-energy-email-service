@@ -21,15 +21,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", '*');
+  res.setHeader("Access-Control-Allow-Methods", '*');
+  res.setHeader("Access-Control-Allow-Header", '*');
+})
+app.use(cors())
 //https://new-energy-raltfb52j-juankmanca.vercel.app
-app.use(cors({
-  origin: '*',
-  methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['xAuth', 'Content-Type', 'X-Requested-With'],
-  exposedHeaders: ['xAuth', 'Content-Type', 'Accept'],
-  preflightContinue: false,
-  credentials: true
-}));
+// app.use(cors({
+//   origin: '*',
+//   methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
+//   allowedHeaders: ['xAuth', 'Content-Type', 'X-Requested-With'],
+//   exposedHeaders: ['xAuth', 'Content-Type', 'Accept'],
+//   preflightContinue: false,
+// }));
 
 app.use('/', indexRouter);
 app.use('/mail', mailRouter);
