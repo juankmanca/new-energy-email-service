@@ -9,7 +9,7 @@ async function main(req, res) {
     // Only needed if you don't have a real mail account for testing
     // let testAccount = await nodemailer.createTestAccount();
     const email = req.body.email || null;
-    if(!email) throw "Ingrese un correo!"
+    if (!email) throw "Ingrese un correo!"
 
     guardarCorreoEnArchivo(email)
 
@@ -35,8 +35,8 @@ async function main(req, res) {
         html: "<p>El Cliente con el correo: <b>" + email + "</b> esta solicitando mas información<p>", // plain text body
         // html: "<b>Hello world?</b>", // html body
       }).catch((err) => {
-          throw err;
-        })
+        throw err;
+      })
 
       console.log("Message sent: %s", info.messageId);
       res.status(200).send();
@@ -52,16 +52,20 @@ async function main(req, res) {
 }
 
 function guardarCorreoEnArchivo(email) {
-  pathFile = path.join(__dirname, '../public/logs/log.txt')
-  fs.appendFile(
-    pathFile,
-    email + '\n',
-    (err) => {
-      if(err) {
-        console.log('err >>:', err);
+  try {
+    pathFile = path.join(__dirname, '../public/logs/log.txt')
+    fs.appendFile(
+      pathFile,
+      email + '\n',
+      (err) => {
+        if (err) {
+          console.log('err >>:', err);
+        }
       }
-    }
-  )
+    )
+  } catch (error) {
+    console.log('error >>:', error);
+  }
 }
 
 module.exports = {

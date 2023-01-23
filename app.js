@@ -23,11 +23,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use(cors({
-  origin: true,
+  origin: '*',
   methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['xAuth', 'Content-Type', 'X-Requested-With'],
   exposedHeaders: ['xAuth', 'Content-Type', 'Accept'],
-  credentials: true
 }));
 
 app.use('/', indexRouter);
