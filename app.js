@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // })
 //https://new-energy-raltfb52j-juankmanca.vercel.app
 app.use(cors({
-  origin: '*',
+  origin: ['https://new-energy.vercel.app'],
   methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['xAuth', 'Content-Type', 'X-Requested-With'],
   exposedHeaders: ['xAuth', 'Content-Type', 'Accept'],
