@@ -20,7 +20,7 @@
       ]
     },
     {
-      "source": "/https://new-energy.vercel.app/(.*)",
+      "source": "https://new-energy.vercel.app/(.*)",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" }
       ]
