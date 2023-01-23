@@ -21,11 +21,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+//https://new-energy-raltfb52j-juankmanca.vercel.app
 app.use(cors({
   origin: '*',
   methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['xAuth', 'Content-Type', 'X-Requested-With'],
+  preflightContinue: false,
   exposedHeaders: ['xAuth', 'Content-Type', 'Accept'],
 }));
 
