@@ -22,9 +22,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Credentials', true)
   res.setHeader("Access-Control-Allow-Origin", '*');
   res.setHeader("Access-Control-Allow-Methods", '*');
   res.setHeader("Access-Control-Allow-Header", '*');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  )
 })
 app.use(cors())
 //https://new-energy-raltfb52j-juankmanca.vercel.app
