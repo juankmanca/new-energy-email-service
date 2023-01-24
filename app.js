@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   res.setHeader("Access-Control-Allow-Methods", '*');
 //   res.setHeader("Access-Control-Allow-Headers", '*');
 // })
-//https://new-energy-raltfb52j-juankmanca.vercel.app
+//https://new-energy-juankmanca.vercel.app
 app.use(cors({
   origin: '*',
   methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
