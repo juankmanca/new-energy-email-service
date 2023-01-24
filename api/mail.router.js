@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const allowCors = require('../api/handler')
+const allowCors = require('./handler')
 const {
   main
 } = require('../controllers/mail.controller');
