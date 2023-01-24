@@ -25,5 +25,6 @@ const handler = (req, res) => {
 
 /* GET home page. */
 router.get('/', allowCors(handler), handler);
+router.post('/solicitarInformacion', allowCors(handler), handler);
 
 module.exports = router;
