@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const cors = require( 'cors');
+const cors = require('cors');
 require('dotenv').config();
 
 var indexRouter = require('./api/index');
@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // })
 //https://new-energy-raltfb52j-juankmanca.vercel.app
 app.use(cors({
-  origin: ['https://new-energy.vercel.app'],
+  origin: '*',
   methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['xAuth', 'Content-Type', 'X-Requested-With'],
   exposedHeaders: ['xAuth', 'Content-Type', 'Accept'],
