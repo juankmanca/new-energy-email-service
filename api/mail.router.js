@@ -5,7 +5,7 @@ const {
   main
 } = require('../controllers/mail.controller');
 
-const allowCors = fn => async (req, res, next) => {
+const allowCors = fn => async (req, res) => {
   res.setHeader('Access-Control-Allow-Credentials', true)
   res.setHeader('Access-Control-Allow-Origin', '*')
   // another common pattern
@@ -22,7 +22,13 @@ const allowCors = fn => async (req, res, next) => {
   return await fn(req, res)
 }
 
+
+const handler = (req, res) => {
+  const d = new Date()
+  res.end(d.toString())
+}
+
 /* POST send email. */
-router.post('/solicitarInformacion', allowCors(main), main);
+router.post('/solicitarInformacion', allowCors(handler), handler);
 
 module.exports = router;
