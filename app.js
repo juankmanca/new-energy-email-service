@@ -27,24 +27,24 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   res.setHeader("Access-Control-Allow-Headers", '*');
 // })
 //https://new-energy-raltfb52j-juankmanca.vercel.app
-app.use(cors({
-  origin: '*',
-  methods: ['POST', 'GET', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['xAuth', 'Content-Type', 'X-Requested-With'],
-  exposedHeaders: ['xAuth', 'Content-Type', 'Accept'],
-  credentials: true
-}));
+app.use((req,res,next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "*");
+  res.setHeader("Access-Control-Allow-Headers", "*");
+})
+
+app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/mail', mailRouter);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
 
   res.locals.message = err.message;
