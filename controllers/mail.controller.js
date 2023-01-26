@@ -5,6 +5,10 @@ const path = require("path");
 // async..await is not allowed in global scope, must use a wrapper
 const main = async (req, res)  => {
   try {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "POST");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+
     // Generate test SMTP service account from ethereal.email
     // Only needed if you don't have a real mail account for testing
     // let testAccount = await nodemailer.createTestAccount();
